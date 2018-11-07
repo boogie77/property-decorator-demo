@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import { observable } from 'mobx';
+import {observer} from 'mobx-react';
+import {StateProp} from './state';
 import './App.css';
 
-class App extends Component {
+@observer
+class App extends Component<StateProp,{}> {
   render() {
+    const store = this.props.state!;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+
+        <input type='text' onChange={(newValue) => store.text = newValue.currentTarget.value} />
+        {store.text}
       </div>
     );
   }
