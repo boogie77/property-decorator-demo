@@ -13,7 +13,7 @@ class App extends Component<StateProp,{}> {
       <div className="App">
 
         <input type='text' onChange={(newValue) => store.text = newValue.currentTarget.value} />
-        {store.text}
+        Input value: {store.text}
       </div>
     );
   }
